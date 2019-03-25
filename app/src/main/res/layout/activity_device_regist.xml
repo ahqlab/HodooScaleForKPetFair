@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.animal.scale.hodoo.activity.device.regist.DeviceRegistActivity" />
+
+        <variable
+            name="activityInfo"
+            type="com.animal.scale.hodoo.domain.ActivityInfo" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/hodoo_background_color"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/common_toolbar"
+            bind:activityInfo="@{activityInfo}" />
+
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_below="@+id/my_toolbar"
+            android:layout_centerInParent="true"
+            app:scale_base_width="360"
+            app:scale_base_height="640"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:onClick="@{activity::onClickRegistBtn}"
+                android:id="@+id/connect_device"
+                app:scale_top="35"
+                app:scale_left="50"
+                app:scale_base_width="280"
+                app:scale_base_height="256"
+                app:scale_width="280"
+                app:scale_height="256"
+                android:elevation="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                >
+                <ImageView
+                    app:scale_top="65"
+                    app:scale_width="200"
+                    app:scale_height="74"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/potty" />
+                <TextView
+                    app:scale_top="155"
+                    app:scale_width="280"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Connect Device"
+                    app:scale_textsize="20"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/mainBlack"
+                    />
+                <TextView
+                    app:scale_top="183"
+                    app:scale_width="280"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:scale_textsize="13"
+                    android:text="Find a newly purchased\nHodoo Scale"
+                    />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
+            <com.ssomai.android.scalablelayout.ScalableLayout
+                android:onClick="@{activity::moveInvitation}"
+                android:id="@+id/request_link"
+                app:scale_top="311"
+                app:scale_left="50"
+                app:scale_base_width="280"
+                app:scale_base_height="256"
+                app:scale_width="280"
+                app:scale_height="256"
+                android:elevation="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                >
+                <ImageView
+                    app:scale_top="67"
+                    app:scale_width="200"
+                    app:scale_height="74"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/link_icon" />
+                <TextView
+                    app:scale_top="155"
+                    app:scale_width="280"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Request for Hodoo Link"
+                    app:scale_textsize="20"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/mainBlack"
+                    />
+                <TextView
+                    app:scale_top="183"
+                    app:scale_width="280"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:scale_textsize="13"
+                    android:text="With a Hodoo user(device holder),\nimprove your pet's health together"
+                    />
+
+            </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+        <LinearLayout
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_toolbar"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="242dp"
+                android:layout_height="154dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="70.9dp"
+                android:src="@drawable/device_regist_scale_icon" />
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="37.1dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_device_regist1"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_device_regist2"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="83dp"
+                android:layout_height="27.1dp"
+                android:layout_marginTop="17dp"
+                android:background="@drawable/device_regist_plus_btn"
+                android:onClick="@{activity::onClickRegistBtn}" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/login_progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>

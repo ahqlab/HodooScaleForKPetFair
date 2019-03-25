@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.animal.scale.hodoo.activity.user.reset.password.confirm.ConfirmCertificationNumberActivity" />
+
+        <variable
+            name="activityInfo"
+            type="com.animal.scale.hodoo.domain.ActivityInfo" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:background="@android:color/white"
+        tools:context=".activity.user.reset.password.send.SendCertificationNumberActivity">
+
+        <include
+            layout="@layout/common_toolbar"
+            bind:activityInfo="@{activityInfo}" />
+
+
+        <LinearLayout
+            android:layout_below="@+id/my_toolbar"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:src="@drawable/temp_lock"
+                    android:layout_marginBottom="50dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:id="@+id/success_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/subscript_color"
+                    android:textAlignment="center"/>
+
+
+
+                <Button
+                    android:id="@+id/sendBtn"
+                    android:background="@drawable/rounded_pink_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="25dp"
+                    android:text="@string/confirm"
+                    android:textColor="@android:color/white"
+                    android:onClick="@{activity::onClickConfirmBtn}"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!-- Login progress -->
+        <ProgressBar
+            android:id="@+id/login_progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+</layout>

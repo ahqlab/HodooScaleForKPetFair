@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.animal.scale.hodoo.activity.user.signup.SignUpActivity" />
+
+        <variable
+            name="activityInfo"
+            type="com.animal.scale.hodoo.domain.ActivityInfo" />
+
+        <variable
+            name="user"
+            type="com.animal.scale.hodoo.domain.User" />
+        <!-- <variable
+             name="watcher"
+             type="android.text.CommonTextWatcher"/>
+         <variable
+             name="emailRule"
+             type="com.animal.scale.hodoo.util.MyOwnBindingUtil.StringRule"/>
+         <variable
+             name="errorMsg"
+             type="java.lang.String"/>-->
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/hodoo_background_color"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        tools:context=".activity.user.signup.SignUpActivity">
+
+        <include
+            layout="@layout/common_toolbar"
+            bind:activityInfo="@{activityInfo}" />
+
+        <ScrollView
+            android:layout_below="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/form_wrap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_below="@+id/common_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_title"
+                    android:textSize="30sp"
+                    android:textColor="@color/mainBlack"
+                    />
+
+                <com.animal.scale.hodoo.custom.view.input.CustomCommonEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:title="@string/istyle_label_email"
+                    app:editTextResourceId="@layout/email_edittext"
+                    app:titleSize="13"
+                    app:errorMessageSize="11"/>
+
+                <com.animal.scale.hodoo.custom.view.input.CustomCommonEditText
+                    android:layout_marginTop="14dp"
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="@string/password"
+                    app:hint="@string/sign_up__password_hint"
+                    app:editTextResourceId="@layout/password_edittext"
+                    app:titleSize="13"
+                    app:errorMessageSize="11"/>
+
+                <com.animal.scale.hodoo.custom.view.input.CustomCommonEditText
+                    android:layout_marginTop="14dp"
+                    android:id="@+id/passwordCheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="@string/istyle_label_confirm_password"
+                    app:hint="@string/sign_up__password_hint"
+                    app:editTextResourceId="@layout/password_edittext"
+                    app:titleSize="13"
+                    app:errorMessageSize="11"/>
+
+                <com.animal.scale.hodoo.custom.view.input.CustomCommonEditText
+                    android:layout_marginTop="14dp"
+                    android:id="@+id/nick_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="@string/istyle_label_nickname"
+                    app:hint="@string/sign_up__nick_name_hint"
+                    app:editTextResourceId="@layout/normal_edittext"
+                    app:titleSize="13"
+                    app:errorMessageSize="11"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.animal.scale.hodoo.custom.view.input.CustomCommonEditText
+                            android:layout_marginTop="14dp"
+                            android:id="@+id/from"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:title="@string/istyle_label_country"
+                            app:editTextResourceId="@layout/normal_edittext"
+                            app:titleSize="13"
+                            app:errorMessageSize="11"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:paddingLeft="4dp"
+                            android:text="@string/istyle_label_sex"
+                            android:textColor="@color/labelColor"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <RadioGroup
+                                    android:id="@+id/radio_group_sex"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/radio_female"
+                                        android:layout_width="18dp"
+                                        android:layout_height="18dp"
+                                        android:layout_marginRight="4dp"
+                                        android:background="@drawable/custom_disease_list_checkbox"
+                                        android:button="@null" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="34dp"
+                                        android:text="@string/woman" />
+
+                                    <RadioButton
+                                        android:id="@+id/radio_male"
+                                        android:layout_width="18dp"
+                                        android:layout_height="18dp"
+                                        android:layout_marginRight="4dp"
+                                        android:background="@drawable/custom_disease_list_checkbox"
+                                        android:button="@null" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/men" />
+                                </RadioGroup>
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/gender_error"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textSize="13sp"
+                                android:textColor="@color/mainRed"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="34dp"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/singup_agree_check"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/custom_disease_list_checkbox"
+                        android:button="@null" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="4dp"
+                        android:text="@string/istyle_label_agree"
+                        android:textColor="@color/mainBlack"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/istyle_label_term"
+                        android:textColor="@color/labelColor"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/istyle_label_private"
+                        android:textColor="@color/labelColor"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/confirm"
+                        style="?android:textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="58dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/rounded_pink_btn"
+                        android:onClick="@{activity::onClickSubmitBtn}"
+                        android:text="@string/istyle_btn_text"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+
+        <FrameLayout
+            android:id="@+id/signup_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000"
+            android:visibility="gone"
+            >
+            <ProgressBar
+                android:layout_gravity="center"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:indeterminateTint="@color/white"
+                />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+    <!-- Login progress -->
+</layout>

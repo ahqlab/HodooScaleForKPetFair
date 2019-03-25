@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activityInfo"
+            type="com.animal.scale.hodoo.domain.ActivityInfo" />
+    </data>
+
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@{activityInfo.barTitle}"
+            android:textColor="@color/hodoo_text_gray"
+            android:textStyle="bold" />
+        <!-- Color is Brown 500 -->
+     <!--   <ProgressBar
+            android:id="@+id/progress_loader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:indeterminateTint="#795548"
+            android:indeterminateTintMode="src_in" />-->
+        <Button
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:visibility="gone"
+            android:stateListAnimator="@null"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:background="@color/white"
+            android:layout_gravity="right"
+            android:id="@+id/sub_btn"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainRed"
+            android:text="" />
+
+    </android.support.v7.widget.Toolbar>
+</layout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.animal.scale.hodoo.activity.setting.list.SettingListActivity" />
+
+        <variable
+            name="setting"
+            type="com.animal.scale.hodoo.domain.SettingMenu" />
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/setting_listview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:changeLinearBg="@{safeUnbox(position)}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:clipChildren="false"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/setting_icon"
+                            android:layout_width="27dp"
+                            android:layout_height="27dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="10dp"
+                            app:imgRes="@{setting.icon}"/>
+                        <!--android:src="@drawable/setting_middle_data_reset_icon_50_50"-->
+                        <TextView
+                            android:id="@+id/setting_badge"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="top|right"
+                            android:background="@drawable/badge_background"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:textColor="@android:color/white"
+                            android:text="0"
+                            android:textSize="10sp"/>
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/setting_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/hodoo_text_gray"
+                        android:text="@={setting.name}" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>
+
+
+
